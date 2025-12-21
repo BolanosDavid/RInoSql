@@ -27,7 +27,7 @@ public final class Neo4jConfig {
     public static Neo4jConfig fromEnv() {
         String uri = firstNonBlank(System.getenv("NEO4J_URI"), "neo4j://localhost:7687");
         String user = firstNonBlank(System.getenv("NEO4J_USER"), "neo4j");
-        String password = firstNonBlank(System.getenv("NEO4J_PASSWORD"), "neo4j");
+        String password = firstNonBlank(System.getenv("NEO4J_PASSWORD"), "David2005_");
         String db = blankToNull(System.getenv("NEO4J_DB"));
         return new Neo4jConfig(uri, user, password, db);
     }
