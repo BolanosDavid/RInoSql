@@ -14,7 +14,11 @@ import java.util.concurrent.ExecutionException;
 
 public class MainFrame extends JFrame {
 
-    private final Driver driver;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Driver driver;
     private final QueryCatalog catalog;
     private final QueryService queryService;
     private final DbScriptRunner scriptRunner;

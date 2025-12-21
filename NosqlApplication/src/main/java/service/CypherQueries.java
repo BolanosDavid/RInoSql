@@ -5,7 +5,6 @@ public final class CypherQueries {
 
     public static final String CREATE_SCRIPT_RESOURCE = "scripts/create.cypher";
 
-    // Elemental
     public static final String Q1_ALUMNOS_POR_ASIGNATURA =
             """
             MATCH (:Alumno)-[:MATRICULADO_EN {cursoAcademico:$cursoAcademico}]->(s:Asignatura)
@@ -20,7 +19,6 @@ public final class CypherQueries {
             ORDER BY profesor, asignatura
             """;
 
-    // Intermediate
     public static final String Q3_RI_SIN_BD_APROBADA =
             """
             MATCH (a:Alumno)-[:MATRICULADO_EN {cursoAcademico:$cursoAcademico}]->(:Asignatura {codigo:'RI'})
@@ -40,13 +38,16 @@ public final class CypherQueries {
             ORDER BY num_alumnos DESC, asignatura
             """;
 
-    // Advanced
     public static final String Q5_PRERREQUISITOS_RI_CIERRE_TRANSITIVO =
             """
-            MATCH (target:Asignatura {codigo:'RI'})
-            MATCH p = (pre:Asignatura)-[:ES_PRERREQUISITO_DE*1..]->(target)
-            RETURN pre.nombre AS prerequisito, min(length(p)) AS saltos_minimos
-            ORDER BY saltos_minimos, prerequisito
+        MATCH (target:Asignatura {codigo:'RI'})
+		MATCH p = (pre:Asignatura)-[:ES_PRERREQUISITO_DE*1..]->(target)
+		WITH pre, target, min(length(p)) AS d
+		MATCH p2 = shortestPath( (pre)-[:ES_PRERREQUISITO_DE*..]->(target) )
+		WHERE length(p2) = d
+		RETURN pre.nombre AS prerequisito, d AS saltos, [n IN nodes(p2) | n.codigo] AS ruta_codigos
+		ORDER BY saltos, prerequisito;
+
             """;
 
     public static final String Q6_CAMINOS_MINIMOS_AMISTAD_HASTA_2 =

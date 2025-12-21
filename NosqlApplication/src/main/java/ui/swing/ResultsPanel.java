@@ -5,7 +5,11 @@ import java.awt.*;
 
 public class ResultsPanel extends JPanel {
 
-    private JTextArea resultsArea;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextArea resultsArea;
     private JScrollPane scrollPane;
 
     public ResultsPanel() {

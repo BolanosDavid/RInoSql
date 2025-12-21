@@ -5,7 +5,11 @@ import java.awt.*;
 
 public class StatusBar extends JPanel {
 
-    private JLabel statusLabel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel statusLabel;
 
     public StatusBar() {
         setLayout(new BorderLayout());

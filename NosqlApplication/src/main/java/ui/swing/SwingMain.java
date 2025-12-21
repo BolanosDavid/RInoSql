@@ -29,7 +29,6 @@ public class SwingMain {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {
-            // fallback to default
         }
     }
 

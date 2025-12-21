@@ -12,7 +12,11 @@ import java.util.Map;
 
 public class ParamFormPanel extends JPanel {
 
-    private JPanel formPanel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel formPanel;
     private JLabel placeholderLabel;
     private final Map<String, JComponent> inputs = new HashMap<>();
 

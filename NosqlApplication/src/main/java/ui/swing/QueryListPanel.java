@@ -10,7 +10,11 @@ import java.util.List;
 
 public class QueryListPanel extends JPanel {
 
-    private final DefaultListModel<QueryDefinition> model = new DefaultListModel<>();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final DefaultListModel<QueryDefinition> model = new DefaultListModel<>();
     private JList<QueryDefinition> queryList;
     private JScrollPane scrollPane;
 
@@ -60,7 +64,12 @@ public class QueryListPanel extends JPanel {
     }
 
     private static class QueryListRenderer extends DefaultListCellRenderer {
-        @Override
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		@Override
         public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             if (value instanceof QueryDefinition q) {
