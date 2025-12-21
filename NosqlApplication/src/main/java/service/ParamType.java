@@ -2,5 +2,8 @@ package service;
 
 public enum ParamType {
     STRING,
-    INT
+    INT,
+    LONG,
+    DOUBLE,
+    BOOLEAN
 }
