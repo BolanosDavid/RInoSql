@@ -74,6 +74,9 @@ public final class AppController {
             Object value = switch (p.type()) {
                 case STRING -> input.readString(p.prompt(), p.defaultValue());
                 case INT -> Integer.parseInt(input.readString(p.prompt(), p.defaultValue()));
+                case LONG -> Long.parseLong(input.readString(p.prompt(), p.defaultValue()));
+                case DOUBLE -> Double.parseDouble(input.readString(p.prompt(), p.defaultValue()));
+                case BOOLEAN -> Boolean.parseBoolean(input.readString(p.prompt(), p.defaultValue()));
             };
             params.put(p.name(), value);
         }
