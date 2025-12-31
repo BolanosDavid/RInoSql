@@ -18,43 +18,43 @@ public final class QueryCatalog {
                         CypherQueries.Q1_ALUMNOS_POR_ASIGNATURA,
                         List.of(new ParamDefinition("cursoAcademico", "Curso académico", STRING, "2024/2025"))
                 ),
-//                new QueryDefinition(
-//                        2,
-//                        "Asignaturas impartidas por profesor (curso académico)",
-//                        "Lista las asignaturas que imparte cada profesor en un curso académico.",
-//                        CypherQueries.Q2_ASIGNATURAS_POR_PROFESOR,
-//                        List.of(new ParamDefinition("cursoAcademico", "Curso académico", STRING, "2024/2025"))
-//                ),
-//                new QueryDefinition(
-//                        3,
-//                        "Diferencia: alumnos en RI sin BD aprobada",
-//                        "Devuelve alumnos matriculados en RI (en un curso académico) que NO tienen BD aprobada.",
-//                        CypherQueries.Q3_RI_SIN_BD_APROBADA,
-//                        List.of(new ParamDefinition("cursoAcademico", "Curso académico", STRING, "2024/2025"))
-//                ),
                 new QueryDefinition(
-                        4,
+                        2,
+                        "Asignaturas relacionadas por un prerrequisito directo",
+                        "Lista las asignaturas que tienen un prerrequisito y que asignaturas son.",
+                        CypherQueries.Q2_PAREJAS_ASIGNATURAS_PRERREQUISITO,
+                        List.of()
+                ),
+                new QueryDefinition(
+                        3,
                         "Asignaturas con mínimo de alumnos",
                         "Devuelve asignaturas con al menos N alumnos matriculados en un curso académico.",
-                        CypherQueries.Q4_ASIGNATURAS_MIN_ALUMNOS,
+                        CypherQueries.Q3_ASIGNATURAS_MIN_ALUMNOS,
                         List.of(
                                 new ParamDefinition("cursoAcademico", "Curso académico", STRING, "2024/2025"),
                                 new ParamDefinition("minAlumnos", "Mínimo de alumnos", INT, "3")
                         )
                 ),
                 new QueryDefinition(
+                         4,
+                         "Diferencia: alumnos en SDI sin BD aprobada",
+                         "Devuelve alumnos matriculados en SDI (en el curso 24/25) que no tienen BD aprobada de cursos anteriores.",
+                         CypherQueries.Q4_SDI_SIN_BD_APROBADA,
+                         List.of(new ParamDefinition("cursoAcademico", "Curso académico", STRING, "2024/2025"))
+                 ),
+                new QueryDefinition(
                         5,
                         "Asignaturas prerrequisito para RI",
                         "Obtiene prerrequisitos directos e indirectos (y saltos mínimos) para Repositorios de Información.",
                         CypherQueries.Q5_PRERREQUISITOS_RI_CIERRE_TRANSITIVO,
                         List.of()
-//                ),
-//                new QueryDefinition(
-//                        6,
-//                        "Avanzada: caminos mínimos en amistad (hasta 2 saltos)",
-//                        "Para cada alumno, lista candidatos conectados por amistad con distancia 1 o 2.",
-//                        CypherQueries.Q6_CAMINOS_MINIMOS_AMISTAD_HASTA_2,
-//                        List.of()
+                ),
+                new QueryDefinition(
+                        6,
+                        "Asignaturas que el alumno UO011 podría cursar en el futuro",
+                        "Para el alumno UO011, lista asignaturas que puede cursas siguiendo la cadena de prerrequisitos.",
+                        CypherQueries.Q6_ASIGNATURAS_FUTURAS_UO011,
+                        List.of()
                 )
         );
     }
