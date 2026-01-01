@@ -10,15 +10,11 @@ import java.util.Arrays;
 
 public final class Main {
     public static void main(String[] args) {
-        Neo4jConfig config = Neo4jConfig.fromEnv();
+        Neo4jConfig config = Neo4jConfig.defaults();
         boolean consoleMode = Arrays.asList(args).contains("--console");
 
-        System.out.println("Neo4j URI: " + config.uri());
+        System.out.println("Neo4j URI: " + config.url());
         System.out.println("Neo4j USER: " + config.user());
-        if ("neo4j".equals(config.password())) {
-            System.out.println("Aviso: estás usando la contraseña por defecto 'password'. Cambia NEO4J_PASSWORD.");
-        }
-
         if (consoleMode) {
             try (Driver driver = Neo4jDriverFactory.createDriver(config)) {
                 driver.verifyConnectivity();

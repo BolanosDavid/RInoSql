@@ -9,7 +9,7 @@ public final class Neo4jDriverFactory {
 
     public static Driver createDriver(Neo4jConfig config) {
         return GraphDatabase.driver(
-                config.uri(),
+                config.url(),
                 AuthTokens.basic(config.user(), config.password())
         );
     }
